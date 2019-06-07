@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>WWBAM</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left panel content goes here</p>
+        </div>
+    </div>
+
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center sliding title">Who Wants To Be A Millionaire</div>
+                    <div class="right">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content -->
+
+
+                    <!-- Divide the screen content into two ie. default and game -->
+					
+					<!-- The Default Screen --> 
+                    <div class="page-content default">
+                        <div class="content-block">
+                            <!-- <p>First Screen</p>
+                            <!-- Link to another page -->
+                            <!--<a class="screen2">Click Here to Go to Second Screen</a>
+                            -->
+                            <img id="logo" src="img/wwtbam.png">
+                            <input id="user" type="text" name="Username" placeholder="Choose A Name" />
+                            <button id="enter">START</button>
+
+                        </div> 
+                        
+                    </div>
+
+					
+					<!-- The Start Game Screen -->
+                     <div class="game">
+                        <div class="content-block">
+                            <!--Second Screen-->
+                            <img id="logo2" src="img/wwtbam.png">
+                            <button class="gamebtn newgame">New Game</button> <br/>
+                            <button class="gamebtn contbtn">Continue</button> <br/>
+                            <button class="gamebtn helpbtn">Help</button> <br/>
+                            <button class="gamebtn chalbtn">Challenge</button>
+                            <button class="gamebtn nacc" id="sound">Sound On/Off</button>
+							
+						<audio id="intro" src="sound/intro.mp3" loop></audio>
+						<audio id="play" src="sound/play.mp3" loop></audio>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="third-screen">
+                        <div class="content-block">
+                        
+                             <img id="logo3" src="img/wwtbam.png">
+
+                           <!--  <p>Youn are required to answer 30 questions.</p>
+                            <p>You have 3-help options </p>  -->
+                            <div id="quiz">
+                                <div id="quest">Question...</div>
+
+                                <div id="options">
+                                    <div class="optionx">A. Option A</div>
+                                    <div class="optiony">B. Option B</div> <br>
+                                    <div class="optionx">C. Option C</div>
+                                    <div class="optiony">D. Option D</div>
+                                </div>
+                                   
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--AContinue Screen-->
+                    <div class="contG">
+                        <div class="content-block">
+                        Continue Game Here
+                        </div>
+                    </div>
+
+                    <!--AContinue Screen-->
+                    <div class="helpG">
+                        <div class="content-block">
+                        Help Screen Here
+                        </div>
+                    </div>
+
+                     <!--AContinue Screen-->
+                    <div class="chalG">
+                        <div class="content-block">
+                        Challenge Screen Here
+                        </div>
+                    </div>
+
+                     <!--AContinue Screen-->
+                    <div class="newG">
+                        <div class="content-block">
+                        New Account Here
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href="#" class="link">Highscore</a>
+                    <a href="#" class="link">Exit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script type="text/javascript" src="js/style.js"></script>
+
+</body>
+
+</html>
